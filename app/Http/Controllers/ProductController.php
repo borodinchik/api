@@ -93,7 +93,7 @@ class ProductController extends Controller
     {
         $product['detail'] = $request->description;
         unset($request['description']);
-        
+
         $product->update($request->all());
 
         return response([
@@ -109,6 +109,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+
+        return response(null, 204);
     }
 }
